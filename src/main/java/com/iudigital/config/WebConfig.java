@@ -10,7 +10,7 @@ public class WebConfig  implements WebMvcConfigurer {
 
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000") // orígenes permitidos
+                .allowedOrigins("https://biblioteca-frontend-4e6x.onrender.com") // orígenes permitidos
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
                 .allowedHeaders("*") // Encabezados permitidos
                 .allowCredentials(true); // Permitir credenciales si es necesario
