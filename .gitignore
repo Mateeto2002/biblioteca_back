@@ -1,6 +1,8 @@
-HELP.md
-target/
+# Ignorar todo en target/
+/target/*
 
+# Pero no ignorar el archivo JAR
+!/target/bibliotecaIUD-0.0.1-SNAPSHOT.jar
 
 ### STS ###
 .apt_generated
