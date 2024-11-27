@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://biblioteca-frontend-4e6x.onrender.com")
+@RequestMapping("/libro")
 public class LibroController {
 
     @Autowired
@@ -27,7 +27,7 @@ public class LibroController {
     @Autowired
     private  LibroService libroService;
 
-    @PostMapping("/libro")
+    @PostMapping("/create")
     public ResponseEntity<Libro> crearLibro(@RequestBody LibroDTO libroDTO) {
 
 
@@ -60,7 +60,7 @@ public class LibroController {
         }
     }
 
-    @GetMapping("/libro")
+    @GetMapping("/mostrar")
     public ResponseEntity<List<Libro>> listarLibros() {
         List<Libro> libros = libroService.listarLibros();
         return  ResponseEntity.ok(libros);

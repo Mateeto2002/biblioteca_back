@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController("https://biblioteca-frontend-4e6x.onrender.com")
 @RequestMapping("/autores")
 public class AutoresController {
 

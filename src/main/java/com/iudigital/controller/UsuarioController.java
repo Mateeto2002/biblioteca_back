@@ -21,7 +21,7 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin(origins = "https://biblioteca-frontend-4e6x.onrender.com")
+@RequestMapping("/usuario")
 public class UsuarioController {
 
     @Autowired
