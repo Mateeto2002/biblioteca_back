@@ -1,8 +1,8 @@
 package com.iudigital.domain;
 import jakarta.persistence.*;
 import java.util.Date;
-@Entity
 
+@Entity
 public class Prestamo {
 
     @Id
@@ -13,12 +13,14 @@ public class Prestamo {
     private Date fechaFinalizacion;
 
     @ManyToOne
-    @JoinColumn(name = "ID_Ejemplar", nullable = false)
+    @JoinColumn(name = "id_ejemplar", nullable = false)
     private Ejemplar ejemplar;
 
     @ManyToOne
-    @JoinColumn(name = "ID_Usuarios", nullable = false)
+    @JoinColumn(name = "id_usuarios", nullable = false)
     private Usuario usuario;
+
+
 
     public Integer getIdPrestamo() {
         return idPrestamo;

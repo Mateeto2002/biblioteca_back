@@ -22,7 +22,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/usuario")
-@CrossOrigin(origins = "https://biblioteca-frontend-4e6x.onrender.com")
 public class UsuarioController {
 
     @Autowired
@@ -46,6 +45,7 @@ public class UsuarioController {
 
 
     @PostMapping("/register")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<Usuario> crearCuenta(@RequestBody RegistroDTO registroDTO) {
 
         try {

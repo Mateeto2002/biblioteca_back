@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/libro")
-public class LibroController {
+public class LibroController{
 
     @Autowired
     private  EditorialService editorialService;
@@ -28,6 +28,7 @@ public class LibroController {
     private  LibroService libroService;
 
     @PostMapping("/create")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<Libro> crearLibro(@RequestBody LibroDTO libroDTO) {
 
 
@@ -61,10 +62,28 @@ public class LibroController {
     }
 
     @GetMapping("/mostrar")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<List<Libro>> listarLibros() {
         List<Libro> libros = libroService.listarLibros();
         return  ResponseEntity.ok(libros);
     }
+
+
+    @DeleteMapping("/delete/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<Void> eliminarLibro(@PathVariable Integer id) {
+        try {
+            // Eliminamos el libro por su ID
+            libroService.eliminarLibro(id);
+
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();  // Respuesta 204 sin contenido
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();  // Respuesta 404 si no se encuentra
+        }
+    }
+
+
 
 
 

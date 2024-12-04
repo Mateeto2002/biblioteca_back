@@ -3,6 +3,8 @@ package com.iudigital.domain;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Libro {
 
@@ -22,6 +24,10 @@ public class Libro {
     @ManyToOne
     @JoinColumn(name = "id_editorial", nullable = false)
     private Editorial editorial;
+
+    @OneToMany(mappedBy = "libro", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Ejemplar> ejemplares;
+
 
     public String getImg() {
         return img;

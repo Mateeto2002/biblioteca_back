@@ -7,6 +7,7 @@ import com.iudigital.repository.EditorialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,5 +26,17 @@ private EditorialRepository editorialRepository;
         return editorialRepository.save(editorial);
     }
 
+    public List<Editorial> listarEditorial() {
+        return editorialRepository.findAll();
+    }
+
+    public void eliminarEditorial(Integer id) {
+        Optional<Editorial> editorial = editorialRepository.findById(id);
+        if (editorial.isPresent()) {
+            editorialRepository.delete(editorial.get());
+        } else {
+            throw new RuntimeException("Editorial no encontrada");
+        }
+    }
 
 }
